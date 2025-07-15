@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>David's Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="/public/images/favicon.png" type="image/png" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://unpkg.com/lenis@1.2.3/dist/lenis.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="#" class="logo">About Me</a>
+      </div>
+    </nav>
+
+    <div>
+      <section id="hero" class="hero">
+        <div class="overlay"></div>
+        <img
+          src="public/images/profile_image.jpg"
+          class="background-image"
+          alt="Profile Image"
+        />
+        <div class="glass-container">
+          <h1
+            class="title reveal-type"
+            data-bg-color="teal"
+            data-fg-color="white"
+          >
+            Hey there, welcome to my portfolio!
+          </h1>
+          <h2 class="subtitle"></h2>
+        </div>
+        <h2 class="subtitle"></h2>
+      </section>
+
+      <section class="centered-section dark-bg">
+        <h6>
+         Web developer with 2+ years of experience building projects with MongoDB, Express, React, and Node.js. Holds a B.Sc. in Information Systems and recently played a key role in an e-commerce platform, specializing in user experience and teamwork. Enjoys bringing ideas to life with practical web solutions.
+        </h6>
+        <p
+          class="reveal-type what-built"
+          data-bg-color="#353535"
+          data-fg-color="red"
+        >
+          What I’ve made
+        </p>
+        <img src="public/images/arrow_down_1.png" class="arrow" alt="Arrow" />
+      </section>
+
+      <div class="insights">
+        <div class="insights-header">
+          <h2>My Projects</h2>
+          <p>
+            A showcase of web projects — focused on functionality, efficiency,
+            and user needs. <br />
+
+            <a
+              href=" 
+         https://github.com/DavidAjest"
+              >GitHub Profile</a
+            >
+          </p>
+        </div>
+
+        <div class="insights-flex">
+          <a class="insight-card js-tilt" href="https://yelpcamp-6ubt.onrender.com/">
+            <div class="card-image">
+              <img src="public/images/campground_4.png" alt="Project Image" />
+              <span class="badge">Live On Render</span>
+            </div>
+            <div class="card-content">
+              <h3>YelpCamp</h3>
+              <p>
+                Built a web app with EJS, Node.js, Express, and MongoDB Atlas,
+                featuring full CRUD functionality (create, read, update, delete)
+                to manage campground sites. Integrated map APIs, allowing users
+                to see the added campground locations pinned on the map. Also
+                implemented a campground review system for user feedback.
+              </p>
+              <p class="read-more">Watch Live →</p>
+            </div>
+          </a>
+          <!-- Additional cards can be added here -->
+          <a
+            class="insight-card js-tilt"
+            href="https://github.com/DavidAjest/spotify-clone"
+          >
+            <div class="card-image">
+              <img src="public/images/spotify-like_1.png" alt="Project Image" />
+            </div>
+            <div class="card-content">
+              <h3>Spotify-like</h3>
+              <p>
+                Developed a Spotify-like music streaming app using MongoDB
+                Atlas, Express, React, Node.js, and Material-UI, focusing on a
+                responsive UI. Integrated Spotify API for artist data and built
+                RESTful APIs for authentication, user playlists, and media
+                streaming. Link to GitHub.
+              </p>
+              <p class="read-more">GitHub →</p>
+            </div>
+          </a>
+          <a
+            class="insight-card js-tilt"
+            href="https://github.com/DavidAjest/College-Project-PlantState-rep"
+          >
+            <div class="card-image">
+              <img
+                src="public/images/plant_classification_1.png"
+                alt="Project Image"
+              />
+            </div>
+            <div class="card-content">
+              <h3>Plant Classification Website</h3>
+              <p>
+                Final college project built with React and Python using FastAPI
+                for the backend and Cloud Firestore for the database. Integrated
+                machine learning for plant classifi cation, along with admin
+                authorization and role-based access for enhanced security.
+                Real-time user feedback, role-based access, and graphical
+                reports.
+              </p>
+              <p class="read-more">GitHub →</p>
+            </div>
+          </a>
+          <a
+            class="insight-card js-tilt"
+            href="https://github.com/DavidAjest/ecommerce/tree/main/frontend"
+          >
+            <div class="card-image">
+              <img src="public/images/e-commerce_ski.png" alt="Project Image" />
+              <span class="badge"> In Progress </span>
+            </div>
+            <div class="card-content">
+              <h3>eCommerce ski website</h3>
+              <p>
+                An eCommerce website for ski gear — built with the MERN stack,
+                TypeScript, and styled using Tailwind CSS for a fast and
+                responsive user experience.
+              </p>
+              <p class="read-more">In Progress</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        gsap.registerPlugin(ScrollTrigger);
+
+        const splitTypes = document.querySelectorAll(".reveal-type");
+        splitTypes.forEach((char) => {
+          const bg = char.dataset.bgColor;
+          const fg = char.dataset.fgColor;
+
+          const text = new SplitType(char, { types: "chars" });
+
+          gsap.fromTo(
+            text.chars,
+            { color: bg },
+            {
+              color: fg,
+              duration: 0.3,
+              stagger: 0.02,
+              scrollTrigger: {
+                trigger: char,
+                start: "top 50%",
+                end: "top 15%",
+                scrub: true,
+                markers: false,
+                toggleActions: "play play reverse reverse",
+              },
+            }
+          );
+        });
+
+        
+
+        const lenis = new Lenis();
+        lenis.on("scroll", ScrollTrigger.update);
+
+        function raf(time) {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+      });
+    </script>
+
+    <script>
+      function initScrollReveal(targetElements, defaultProps) {
+        if (!targetElements.length) return;
+
+        ScrollReveal({ reset: false });
+
+        targetElements.forEach(function ({ element, animation }) {
+          ScrollReveal().reveal(
+            element,
+            Object.assign({}, defaultProps, animation)
+          );
+        });
+      }
+
+      // Example usage:
+      document.addEventListener("DOMContentLoaded", function () {
+        const elements = [
+          {
+            element: ".title",
+            animation: { delay: 200, distance: "50px", origin: "top" },
+          },
+          {
+            element: ".what-built",
+            animation: { delay: 400, distance: "30px", origin: "bottom" },
+          },
+          {
+            element: ".insights-flex",
+            animation: {
+              delay: 600,
+              distance: "20px",
+              origin: "right",
+              interval: 100,
+            },
+          },
+        ];
+        // Convert selector strings to actual elements
+        const targets = elements
+          .map((item) => ({
+            element: document.querySelector(item.element),
+            animation: item.animation,
+          }))
+          .filter((item) => item.element);
+
+        initScrollReveal(targets, { duration: 800, easing: "ease-in-out" });
+      });
+    </script>
+    <script>
+      function initTiltAnimation() {
+        const elements = document.querySelectorAll(".js-tilt");
+        if (elements.length) {
+          VanillaTilt.init(elements);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        initTiltAnimation();
+      });
+    </script>
+  </body>
+</html>
